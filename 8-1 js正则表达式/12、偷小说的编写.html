@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>12、偷小说的编写</title>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oTxt1=document.getElementById('txt1');
+		var oTxt2=document.getElementById('txt2');
+		var oBtn=document.getElementById('btn1');
+		oBtn.onclick=function(){
+			//<p><><></p>
+			/*<p>sj啊实打实大家安静</p><div id="hasjd">杀菌的八角对把结婚才不会</div><p>爱啥啥进口单价</p>*/
+			var re=/<[^<>]+>/g;
+			oTxt2.value=oTxt1.value.replace(re,'  ');
+		}
+	}
+	</script>
+</head>
+<body>
+	<textarea id='txt1' cols='40' rows='10'></textarea><br />
+	<input id='btn1'type="button" value="偷小说" /><br />
+	<textarea id='txt2' cols='40' rows='10'></textarea>
+</body>
+</html>

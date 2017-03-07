@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2、自定义滚动条，控制格子的大小变化</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		#parent{
+			width:500px;
+			height:30px;
+			background:#ccc;
+			position:relative;
+			margin: 0 auto;
+		}
+		#div1{
+			width:30px;
+			height:30px;
+			background:blue;
+			position:absolute;
+
+		}
+		#div2{
+			width: 0px;
+			height: 0px;
+			background: red;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oParent=document.getElementById('parent');
+			var oDiv1=document.getElementById('div1');
+			var oDiv2=document.getElementById('div2');
+			oDiv1.onmousedown=function(ev){
+				var oEv=ev||event;
+				var disX=oEv.clientX-oDiv1.offsetLeft;
+				var disY=oEv.clientY-oDiv1.offsetTop;
+				document.onmousemove=function(ev){
+					var oEv=ev||event;
+					var x=oEv.clientX-disX;
+					var y=0;
+					if(x<0){
+						x=0;
+					}
+					else if(x>oParent.offsetWidth-oDiv1.offsetWidth){
+						x=oParent.offsetWidth-oDiv1.offsetWidth;
+					}
+					
+					oDiv1.style.left=x+'px';
+					oDiv1.style.top=y+'px';
+					var scale=x/(oParent.offsetWidth-oDiv1.offsetWidth);
+					document.title=scale;
+					oDiv2.style.width=200*scale+'px';
+					oDiv2.style.height=200*scale+'px';
+				}
+				document.onmouseup=function(){
+					document.onmousemove=null;
+					document.onmouseup=null;
+				}
+				return false;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="parent">
+		<div id="div1"></div>
+	</div>
+	<div id="div2"></div>
+</body>
+</html>

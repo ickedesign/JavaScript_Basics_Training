@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>6.1（复习）鼠标坐标2</title>
+	<style>
+		#box{
+			width:100px;
+			height:100px;
+			background:yellow;
+			position:absolute;
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var oBox=document.getElementById('box');
+			document.onmousemove=function(ev){
+				var oEv=ev||event;
+				var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+				var scrollLeft=document.documentElement.scrollLeft||document.body.scrollLeft;
+				oBox.style.left=oEv.clientX+scrollLeft+'px';
+				oBox.style.top=oEv.clientY+scrollTop+'px';
+				
+				
+			}
+		}
+	</script>
+</head>
+
+<body style="height:1000px;width:3000px">
+	<div id="box"></div>
+</body>
+</html>

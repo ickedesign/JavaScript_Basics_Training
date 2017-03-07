@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4、阻止缓存</title>
+	<script src="ajax.js" type="text/javascript"></script>
+	<script>
+		window.onload=function(){
+			var oBtn=document.getElementById('btn');
+			oBtn.onclick=function(){
+				ajax('txt/useAjaxText.txt?t='+new Date().getTime(),function(str){
+					alert(str);
+				},function(){
+					alert('失败');
+				});//使用统一的字符集,如utf-8字符集
+
+			}
+		}
+	</script>
+</head>
+<body>
+	<input id="btn" type="button" value="读取" />
+</body>
+</html>

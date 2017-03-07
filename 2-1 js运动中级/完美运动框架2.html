@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>完美运动框架2</title>
+	<style type="text/css">
+		#div1{
+			height:200px;
+			width:200px;
+			background:red;
+			margin-top:100px;
+			filter:alpha(opacity:30);
+			opacity:0.3;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+			var oDiv=document.getElementById('div1');
+			var oBtn=document.getElementById('btn');
+			oBtn.onclick=function(){
+				startMove(oDiv,{height:11,width:100,opacity:100},function(){
+					alert('abc');//说明有运行到这个clearInterval;
+				});
+				
+			}
+			var oBtn1=document.getElementById('btn1');
+			oBtn1.onclick=function(){
+				startMove(oDiv,{height:200,width:200,opacity:30});
+				
+			}
+		}	
+	</script>
+</head>
+<body>
+	
+</body>
+<p>完美的框架</p>
+<input type="button" value="运动1" id="btn" />
+<input type="button" value="运动2" id="btn1" />
+<div id="div1"></div>	
+<script type="text/javascript" src="js/move3.js"></script>	
+</html>

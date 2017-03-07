@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5、读取txt文本里面的数组，使用eval</title>
+	<script type="text/javascript" src="ajax.js"></script>
+	<script>
+		window.onload=function(){
+			var oBtn=document.getElementById('btn');
+			oBtn.onclick=function(){
+				ajax('txt/useEval.txt?t='+new Date().getTime(),function(str){
+					// alert(eval(str).length);
+					var arr=eval(str);
+					alert(arr);
+					
+				},function(str1){
+					alert('失败'+str1);
+				})
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id="btn" value="读取" />
+</body>
+</html>

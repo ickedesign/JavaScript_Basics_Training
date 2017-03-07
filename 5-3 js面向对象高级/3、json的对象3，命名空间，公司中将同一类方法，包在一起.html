@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3、json的对象3，命名空间，公司中将同一类方法，包在一起</title>
+	<script type="text/javascript">
+	var zns={};
+	zns.common={};
+	zns.site={};
+	zns.fx={};
+	zns.common.getUser=function(){
+		alert('icke');//指的是zns.common有一个属性，是getuser
+	}
+	zns.site.getUser=function(){
+		alert('blue');
+	}
+	zns.fx.getUser=function(){
+		alert('zarson');
+	}
+	zns.common.getUser();
+	zns.site.getUser();
+	zns.fx.getUser();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

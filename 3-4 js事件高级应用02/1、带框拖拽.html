@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>1、带框拖拽</title>
+	<style>
+		#div1{
+			width:100px;
+			height:100px;
+			background:yellow;
+			position:absolute;
+		}
+		.box{
+			border:1px dashed #000;
+			position:absolute;
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var oDiv=document.getElementById('div1');
+			oDiv.onmousedown=function(ev){
+				var oEv=ev||event;
+				var disX=oEv.clientX-oDiv.offsetLeft;
+				var disY=oEv.clientY-oDiv.offsetTop;
+				var oBox=document.createElement('div');
+				oBox.className='box';
+				oBox.style.width=oDiv.offsetWidth-2+'px';
+				oBox.style.height=oDiv.offsetHeight-2+'px';
+				//使得框框的位置与格子出现的位置相同
+				oBox.style.left=oDiv.offsetLeft+'px';
+				oBox.style.top=oDiv.offsetTop+'px';
+				document.body.appendChild(oBox);/*里面不用加引号*/
+				document.onmousemove=function(ev){
+					var oEv=ev||event;
+					var x=oEv.clientX-disX;
+					var y=oEv.clientY-disY;
+					oBox.style.left=x+'px';
+					oBox.style.top=y+'px';
+				}
+				document.onmouseup=function(){
+					document.onmousemove=null;
+					document.onmouseup=null;
+					oDiv.style.left=oBox.offsetLeft+'px';
+					oDiv.style.top=oBox.offsetTop+'px';
+					document.body.removeChild(oBox);
+				}
+				return false;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>

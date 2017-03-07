@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>淘宝幻灯片</title>
+	<link href="js/slide.css" type="text/css" rel="stylesheet" /> 
+	<script type="text/javascript">
+		window.onload=function(){
+			/*var oUl=document.getElementsByTagName('ul')[0];
+			var aBtn=document.getElementsByTagName('ol')[0].getElementsByTagName('li');
+			for(var i=0;i<aBtn.length;i++){
+				aBtn[i].index=i;
+				aBtn[i].onclick=function(){
+					for(var i=0;i<aBtn.length;i++){
+						aBtn[i].className='';
+					}
+					this.className='active';	
+					//oUl.style.top=-150*this.index+'px';
+					startMove(oUl,{top:-150*this.index});
+				}
+			}*/
+			//下面对函数进行封装,并且有幻灯片的效果
+			var oDiv=document.getElementById('play');
+			var oUl=document.getElementsByTagName('ul')[0];
+			var aBtn=document.getElementsByTagName('ol')[0].getElementsByTagName('li');
+			var now=0;
+			/*for(var i=0;i<aBtn.length;i++){
+				aBtn[i].index=i;
+				aBtn[i].onclick=function(){
+					now=this.index;//这个语句得放在函数里面
+					for(var i=0;i<aBtn.length;i++){
+						aBtn[i].className='';
+					}
+					this.className='active';	
+					//oUl.style.top=-150*this.index+'px';
+					startMove(oUl,{top:-150*now});
+				}
+			}*/
+			//现在把它提出去
+			for(var i=0;i<aBtn.length;i++){
+				aBtn[i].index=i;
+				aBtn[i].onclick=function(){
+					now=this.index;//这个语句得放在函数里面
+					tab();
+				}
+			}
+			function tab(){
+				for(var i=0;i<aBtn.length;i++){
+						aBtn[i].className='';
+				}
+				aBtn[now].className='active';	
+				startMove(oUl,{top:-150*now});
+			}
+			//下面是幻灯片的效果
+			function next(){
+				now++;
+				if(now==aBtn.length){
+					now=0;
+				}
+				tab();
+			}
+			var timer=setInterval(next,2000);//直接写入函数名，后面不用加括号
+			oDiv.onmouseover=function(){
+				clearInterval(timer);
+			}
+			oDiv.onmouseout=function(){
+				timer=setInterval(next,2000);
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<div id="play">
+		<ul>
+			<li><a href="www.taobao.com"><img src="img/1.jpg" /></a></li>
+			<li><a href="www.taobao.com"><img src="img/2.jpg" /></a></li>
+			<li><a href="www.taobao.com"><img src="img/3.jpg" /></a></li>
+			<li><a href="www.taobao.com"><img src="img/4.jpg" /></a></li>
+			<li><a href="www.taobao.com"><img src="img/5.jpg" /></a></li>
+		</ul>
+		<ol>
+			<li class="active">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ol>
+	</div>
+<script type="text/javascript" src="js/move3.js"></script>	
+</body>
+</html>

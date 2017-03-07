@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2、工厂模式：用构造函数创建一个类</title>
+	<script type="text/javascript">
+	function createPerson(name,qq){
+		//原料
+		var obj=new Object();
+		//加工
+		obj.name=name;
+		obj.qq=qq;
+		obj.showName=function(){
+			alert('我的名字是：'+this.name);
+		}
+		obj.showQq=function(){
+			alert('我的qq是：'+this.qq);
+		}
+		//出厂
+		return obj;
+	}
+	//缺点一：无new
+	var obj1=createPerson('blue','226336432');
+	var obj2=createPerson('icke','632767736437');
+	obj1.showName();
+	obj1.showQq();
+	obj2.showName();
+	obj2.showQq();
+	//缺点二：函数重复
+	alert(obj1.showName==obj2.showName);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

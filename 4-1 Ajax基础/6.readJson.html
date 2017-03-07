@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>6、读取txt文本里面的数组的json</title>
+	<script type="text/javascript" src="ajax.js"></script>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oBtn=document.getElementById('btn');
+		oBtn.onclick=function(){
+			ajax('txt/readJson.txt?t='+new Date().getTime(),function(str){
+				var arr=eval(str);
+				alert(arr[0]);//显示为[objet Objet]
+				alert(arr[0].a);//显示为1
+				for(var i in arr[0]){
+					alert(i+'='+arr[0][i]);
+				}//以此显示为 a=1 ,b=2;
+			},function(){
+				alert('失败');
+			})
+		}
+	}
+	</script>
+</head>
+<body>
+	<input type="button" id="btn" value="读取" />
+</body>
+</html>

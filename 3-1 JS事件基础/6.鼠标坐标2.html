@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>6.鼠标坐标2</title>
+
+	<script>
+	window.onload=function(){
+		var oDiv=document.getElementById('div1');
+		document.onmousemove=function(ev){//是onmousemove
+				var oEvent=ev||event;
+				var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+				//var oDiv=document.getElementById('div1');
+				oDiv.style.left=oEvent.clientX+'px';
+				oDiv.style.top=oEvent.clientY+scrollTop+'px';//只要在top上面加scrollTop就好了
+		}
+	}	
+
+
+	</script>
+</head>
+
+<body style="height:2000px;">
+	<div id="div1" style="background:red;height:200px;width:200px;position:absolute;"></div>
+</body>
+</html>

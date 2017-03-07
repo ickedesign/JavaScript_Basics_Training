@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>7.2（复习）封装获取页面绝对位置的函数</title>
+	<style type="text/css">
+		#box{height:100px;width:100px;background:green;position:absolute;}
+	</style>
+	<script>
+	window.onload=function(){
+		function getPos(oEv){
+			var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+			var scrollLeft=document.documentElement.scrollLeft||document.body.scrollLeft;
+			return{x:oEv.clientX+scrollLeft,y:oEv.clientY+scrollTop};
+		}
+		var oBox=document.getElementById('box');
+		document.onmousemove=function(ev){
+			var oEv=event||ev;
+			oBox.style.left=getPos(oEv).x+'px';
+			oBox.style.top=getPos(oEv).y+'px';
+		}
+	}
+	</script>
+</head>
+
+<body>
+	<div id="box">
+	</div>
+</body>
+</html>

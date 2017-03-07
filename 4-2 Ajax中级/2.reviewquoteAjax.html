@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2.(复习)引用senew_ajax.js</title>
+	<script type="text/javascript" src="senew_ajax.js"></script>
+	<script>
+	window.onload=function(){
+		var oBtn=document.getElementById('btn');
+		oBtn.onclick=function(){
+			//ajax(url,fnSucc,fnFaild);
+			ajax('txt/ajaxTest.txt?t='+new Date().getTime(),function(str){
+				alert(str);
+			},function(str){
+				alert('失败：'+str);
+			});
+		}
+	}
+	</script>
+</head>
+<body>
+	<input type="button" id="btn" value="点击" />
+</body>
+</html>

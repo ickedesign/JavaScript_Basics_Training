@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2、引用new_ajax.js文件</title>
+	<script src="new_ajax.js"></script>
+	<script>
+	window.onload=function(){
+		var oBtn=document.getElementById('btn1');
+		oBtn.onclick=function(){
+			ajax('txt/ajaxTest.txt?t='+new Date().getTime(),function(str){
+				alert(str);
+			},function(str){
+				alert('失败：'+str);
+			});
+		}	
+	}
+	</script>
+</head>
+<body>
+	<input type="button" value="点击" id="btn1" />
+</body>
+</html>

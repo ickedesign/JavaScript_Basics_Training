@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>智能社视频下</title>
+	<script type="text/javascript">
+window.onload=function(){
+	function getStyle(obj,name){
+		if(obj.currentStyle){
+			return obj.currentStyle[name];//name为变量，要用方括号括起来；
+		}
+		else{
+			return getComputedStyle(obj,false)[name];
+		}
+	}
+	var oDiv=document.getElementById('div1');
+	
+	oDiv.onmouseover=function (){
+		move(this,'opacity',100);
+	}
+	oDiv.onmouseout=function(){
+		move(this,'opacity',30);
+	}
+	var oDiv2=document.getElementById('div2');
+	
+	oDiv2.onmouseover=function (){
+		move(this,'width',400);
+	}
+	oDiv2.onmouseout=function(){
+		move(this,'width',200);
+	}
+	function move(obj,attr,target){//attribute是属性的意思；
+		clearInterval(obj.timer);
+		obj.timer=setInterval(function(){
+			if(attr=='opacity'){
+				var cur=Math.round(parseFloat(getStyle(obj,attr))*100);
+				
+			}
+			else{
+				var cur=parseInt(getStyle(obj,attr));
+			}	
+			var speed=(target-cur)/6;
+			speed=speed>0?Math.ceil(speed):Math.floor(speed);
+			if(target==cur){
+				clearInterval(obj.timer);
+			}
+			else{
+				//第一种方式：
+				/*if(attr=='opacity'){
+					obj.style.filter='alpha(opacity:'+(cur+speed)+')';
+					obj.style.opacity=(cur+speed)/100;
+				}
+				else{
+					obj.style[attr]=cur+speed+'px';
+				}*/
+				cur+=speed;
+				if(attr=='opacity'){
+					obj.style.filter='alpha(opacity:'+(cur)+')';
+					obj.style.opacity=(cur)/100;
+					document.getElementById('txt').value=obj.style.opacity;
+				}
+				else{
+					obj.style[attr]=cur+'px';
+				}
+			}
+		},30)
+	}
+}
+	</script>
+	<style>
+		div{
+			width:200px;
+			height:200px;
+			background:yellow;
+			margin-left:10px;
+			border:3px solid black;
+			filter:alpha(opacity:30);
+			opacity:0.3;
+			float:left;
+		}
+	</style>
+</head>
+
+
+	
+<body>
+<p class="paragraph">JS 运动应用:任意值运动框架；7.不使用offset:进一步优化代码，使得其能适用两种形式。通过parseFloat来解决淡入淡出的问题，来适用于非行间样式；即parseFloat(getStyle(oDiv,'width'));<br />Math.round();四舍五入；</p>
+<div id="div1"></div>
+<div id="div2"></div>
+<input style="position:fixed;top:0;left:0;" type="text" id="txt" />
+</body>
+</html>

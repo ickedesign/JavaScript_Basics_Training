@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.拖拽,防止拖出页面</title>
+<script type="text/javascript">
+		window.onload=function(){
+			var oDiv=document.getElementById('div1');
+			var disX=0;
+			var disY=0;
+			
+			oDiv.onmousedown=function(ev){
+				var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+				var scrollLeft=document.documentElement.scrollLeft||document.body.scrollLeft;
+				var oEv=ev||event;
+				disX=scrollLeft+oEv.clientX-oDiv.offsetLeft;
+				disY=scrollTop+oEv.clientY-oDiv.offsetTop;
+				document.onmousemove=function(ev){//加document，使得鼠标不出红格子
+					var oEv=ev||event;
+					x=scrollLeft+oEv.clientX-disX;
+					y=scrollTop+oEv.clientY-disY;
+					//拖拽,防止拖出页面
+					if(x<0){
+						x=0;
+					}
+					else if(x>scrollLeft+document.documentElement.clientWidth-oDiv.offsetWidth){
+						x=scrollLeft+document.documentElement.clientWidth-oDiv.offsetWidth;
+					}
+					if(y<0){
+						y=0;
+					}
+					else if(y>scrollTop+document.documentElement.clientHeight-oDiv.offsetHeight){
+						y=scrollTop+document.documentElement.clientHeight-oDiv.offsetHeight;
+					}
+					//这些东西要放在下面
+					oDiv.style.left=x+'px';
+					oDiv.style.top=y+'px';
+
+				}
+				document.onmouseup=function(){//加document,使得红格子出页面，鼠标弹出时，能正常
+					
+					document.onmousemove=null;
+					document.onmouseup=null;
+				}
+				return false;//阻止在FF中出现的默认事件
+			}
+			
+		}
+	</script>
+</head>
+
+<body style="height:2000px;width:3000px;">
+	<div id="div1" style="width:200px;height:200px;background:green;position:absolute;"></div>
+</body>
+</html>

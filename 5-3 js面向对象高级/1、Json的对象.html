@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>1、Json的对象</title>
+	<script type="text/javascript">
+	var json={
+		a: 12,
+		b: 15,
+		show: function(){
+			alert(this);
+		} ,
+		showMes: function(value){
+			alert(value);
+		}
+	}
+	json.show();//弹出[object Object],该对象是json，因为show是json的属性
+	//[object Object]是自定义的对象的意思
+	//alert(json.a);
+	//json.showMes('3');//弹出3
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

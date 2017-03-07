@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>7.重复任意值运动框架，增加对本节课的印象</title>
+	<style type="text/css">
+		div{
+			width:200px;
+			height:200px;
+			border:2px solid black;
+			margin-right:20px;
+			background:yellow;
+			float:left;
+			filter:alpha(opacity:30);
+			opacity:0.3;
+		}
+	</style>
+	<script type="text/javascript">
+		//提取非行间样式
+		
+	window.onload=function(){	
+
+		function getStyle(obj,name){
+			if(obj.currentStyle){
+				return obj.currentStyle[name];
+			}
+			else{
+				return getComputedStyle(obj,false)[name];
+			}
+		}
+		var oDiv1=document.getElementById('div1');
+		oDiv1.onmouseover=function(){
+			startMove(this,'height',400);
+		}
+		oDiv1.onmouseout=function(){
+			startMove(this,'height',200);
+		}
+		var oDiv2=document.getElementById('div2');
+		oDiv2.onmouseover=function(){
+			startMove(this,'opacity',100);
+		}
+		oDiv2.onmouseout=function(){
+			startMove(this,'opacity',30);
+		}
+		function startMove(obj,attr,target){
+			clearInterval(obj.timer);
+			obj.timer=setInterval(function(){
+				if(attr=='opacity'){
+					var cur=Math.round(parseFloat(getStyle(obj,attr))*100);
+				}
+				else{
+					var cur=parseInt(getStyle(obj,attr));
+				}
+				var speed=(target-cur)/6;
+				speed=speed>0?Math.ceil(speed):Math.floor(speed);
+				if(cur==target){
+					clearInterval(obj.timer);
+				}
+				else{
+					cur+=speed;
+					if(attr=='opacity'){
+						obj.style.filter='alpha(opacity:'+cur+')';
+						obj.style.opacity=cur/100;
+						document.getElementById('txt').value=obj.style.opacity;
+					}
+					else{
+						obj.style[attr]=cur+'px';
+					}
+				}
+			},30)
+		}
+	}	
+	</script>
+</head>
+
+<body>
+	<input id="txt" type="text" />
+	<div id="div1"></div>
+	<div id="div2"></div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5、属性继承和方法继承</title>
+	<script type="text/javascript">
+	function A(){
+		this.name='icke';
+	}
+	A.prototype.show=function(){
+		alert('名字是：'+this.name);
+	}
+	//用B来继承A
+	//属性继承
+	function B(){
+		A.call(this);
+	}
+	/*var objB=new B();
+	alert(objB.name);*/
+	//方法继承
+	for(var i in A.prototype){
+		B.prototype[i]=A.prototype[i];
+	}
+	B.prototype.site=function(){
+		alert('地址是：北京');
+	}
+	var objB=new B();
+	objB.show();
+	objB.site();
+	var objA=new A();
+	//objA.site();objA没有此方法;
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>单选框的全选、不选、反选</title>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oBtn1=document.getElementById('btn1');
+		var oBtn2=document.getElementById('btn2');
+		var oBtn3=document.getElementById('btn3');
+		var oDiv1=document.getElementById('div1');
+		var aBox=oDiv1.getElementsByTagName('input');
+		oBtn1.onclick=function(){
+			for(var i=0;i<aBox.length;i++){
+				aBox[i].checked=true;
+			}
+		}
+		oBtn2.onclick=function(){
+			for(var i=0;i<aBox.length;i++){
+				aBox[i].checked=false;
+			}
+		}
+		oBtn3.onclick=function(){
+			for(var i=0;i<aBox.length;i++){
+				if(aBox[i].checked==true){
+					aBox[i].checked=false;
+				}
+				else{
+					aBox[i].checked=true;
+				}
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<input id="btn1" type="button" value="全选" />
+	<input id="btn2" type="button" value="不选" />
+	<input id="btn3" type="button" value="反选" />
+	<div id="div1">
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+	</div>	
+</body>
+</html>

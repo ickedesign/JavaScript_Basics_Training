@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2.弹出自定义右键菜单</title>
+	<style>
+		*{
+			margin:0px;
+			padding:0px;
+		}
+		#div1{
+			background:#ccc;
+			width: 100px;
+			position: absolute;
+			border: 1px solid black;
+			display: none;
+		}
+		#div1 li{
+			list-style: none;
+		}
+		li:hover{
+			background: pink;
+			cursor: pointer;
+		}
+		a{
+			color:#000;
+			display: block;
+			text-decoration:none;
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var oDiv=document.getElementById('div1');
+			
+			document.oncontextmenu=function(ev){
+				var oEv=ev||event;
+				var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+				var scrollLeft=document.documentElement.scrollLeft||document.body.scrollLeft;
+				oDiv.style.display="block";//该语句得放在return false;前面
+				oDiv.style.left=oEv.clientX+scrollLeft+'px';
+				oDiv.style.top=oEv.clientY+scrollTop+'px';
+				return false;
+				
+			}
+			document.onclick=function(){
+				oDiv.style.display="none";
+			}
+		}
+	</script>
+</head>
+<body style="height:2000px;width:3000px;">
+	<div id="div1">
+		<ul>
+			<li><a href="http://www.baidu.com" target="_blank">选项一</a></li>
+			<li><a href="http://www.baidu.com" target="_blank">选项二</a></li>
+			<li><a href="http://www.baidu.com" target="_blank">选项三</a></li>
+			<li><a href="http://www.baidu.com" target="_blank">选项四</a></li>
+		</ul>	
+	</div>
+</body>
+</html>

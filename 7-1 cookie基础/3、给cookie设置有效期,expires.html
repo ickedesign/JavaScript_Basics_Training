@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3、给cookie设置有效期,expires</title>
+	<script type="text/javascript">
+	var oDate=new Date();
+	oDate.setDate(oDate.getDate()+14);//14天的期限
+	document.cookie='user=cike;expires='+oDate;
+	alert(document.cookie);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

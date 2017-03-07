@@ -1,0 +1,43 @@
+<!--回调函数：运动停止时，执行函数-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>链式运动框架</title>
+	<style type="text/css">
+		#div1{
+			height:100px;
+			width:100px;
+			background:red;
+			filter:alpha(opacity:30);
+			opacity:0.3;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){//一个html引用的js文件中只能有一个window.onload
+		var oDiv1=document.getElementById('div1');
+		var oDiv2=document.getElementById('div2');
+		oDiv1.onmouseover=function(){
+			startMove(this,'width',200,function(){
+				startMove(oDiv1,'height',200,function(){
+					startMove(oDiv1,'opacity',100);
+				});//不能用this,因为此刻它已经不是原来的盒子了
+			});
+		}
+		oDiv1.onmouseout=function(){
+			startMove(oDiv1,'opacity',30,function(){
+				startMove(oDiv1,'height',100,function(){
+					startMove(oDiv1,'width',100);
+				})
+			})
+		}
+
+	}	
+	</script>
+</head>
+
+<body>
+<div id="div1"></div>
+<script type="text/javascript" src="js/move.js"></script>	
+</body>
+</html>

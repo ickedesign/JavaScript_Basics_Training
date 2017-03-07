@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡</title>
+	<style type="text/css">
+		div{
+			background: #ccc;
+			width: 200px;
+			height:200px;
+			display: none;
+		}
+		.active{
+			background: yellow;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+		var aBtn=document.getElementsByTagName('input');
+		var aDiv=document.getElementsByTagName('div');
+		for(var i=0;i<aBtn.length;i++){
+			aBtn[i].index=i;
+			aBtn[i].onclick=function(){
+				for(var i=0;i<aBtn.length;i++){
+					aBtn[i].className='';
+					aDiv[i].style.display='none';
+				}
+				this.className='active';
+				aDiv[this.index].style.display='block';
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<input class="active" type="button" value="舞俱" />
+	<input type="button" value="ewei" />
+	<input type="button" value="信管" />
+	<input type="button" value="实习" />
+	<div style="display: block;">舞俱人的BLOG - 舞俱人 - 网易博客
+舞俱网站重新开通了!,街舞表演——09年“缤纷时光机”晚会,交谊舞俱乐部形象识别,舞俱人的网易博客,广东工业大学交谊舞俱乐部的博客,舞俱精彩 有你有我</div>
+	<div>ewei</div>
+	<div>信管</div>
+	<div>实习</div>
+</body>
+</html>

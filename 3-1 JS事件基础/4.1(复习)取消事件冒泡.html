@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>cancelBubble</title>
+	<style>
+		#box{
+			width:100px;
+			height:100px;
+			background:#ccc;
+			margin-top:50px;
+			display: none;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oBtn=document.getElementById('btn');
+		var oBox=document.getElementById('box');
+		oBtn.onclick=function(ev){
+			oBox.style.display='block';
+			var oEv=event||ev;
+			oEv.cancelBubble=true;
+		}
+		document.onclick=function(){
+			oBox.style.display='none';
+		}
+	}	
+	</script>
+</head>
+
+<body>
+	<input id="btn" type="button" value="展开" />
+	<div id="box"></div>
+</body>
+</html>

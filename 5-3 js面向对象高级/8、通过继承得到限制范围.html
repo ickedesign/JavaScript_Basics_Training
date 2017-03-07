@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>8、通过继承得到限制范围</title>
+	<style type="text/css">
+		#div1{
+			width: 200px;
+			height: 200px;
+			background: yellow;
+			position: absolute;
+		}
+		#div2{
+			width: 200px;
+			height: 200px;
+			background: blue;
+			position: absolute;
+		}
+	</style>
+	<script type="text/javascript" src="Drag.js"></script>
+	<script type="text/javascript" src="LimitDrag.js"></script>
+	<script type="text/javascript">
+	window.onload=function(){
+		new Drag('div1');
+		new LimitDrag('div2');
+	}
+	</script>
+</head>
+<body>
+asugdajdbajbdajsdbajbdajdbasjksdaskjdba
+	<div id="div1">父级拖拽</div>
+	<div id="div2">限制范围</div>
+</body>
+</html>

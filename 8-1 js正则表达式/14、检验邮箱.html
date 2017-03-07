@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>14、检验邮箱</title>
+	<script type="text/javascript">
+	//邮箱: 一串英文、数字、下划线@一串英文、数字 . 一串英文
+	window.onload=function(){
+		var oTxt1=document.getElementById('txt1');
+		var oBtn1=document.getElementById('btn1');
+		oBtn1.onclick=function(){
+			var re=/^\w+@[a-z0-9]+\.[a-z]+$/i;
+			if(re.test(oTxt1.value)){
+				alert('合法邮箱');
+			}
+			else{
+				alert('写错了');
+			}
+		}
+	}	
+	</script>
+</head>
+<body>
+	<input type="text" id="txt1" />
+	<input type="button" value="检验" id="btn1" />
+</body>
+</html>

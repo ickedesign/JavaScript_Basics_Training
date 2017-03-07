@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2、用面向对象的方式写一个选项卡</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.active{
+			background: yellow;
+		}
+		#div1 div{
+			margin-top: 20px;
+			margin-left: 20px;
+			width: 200px;
+			height: 200px;
+			background: #ccc;
+			display: none;
+		}
+	</style>
+	<script type="text/javascript">
+	/*var x=null;
+	window.onload=function (){
+		var x=5;
+	}
+	function b(){
+		alert(x);
+	}
+	b();*/
+	/*
+	全局变量：
+	var aBtn=null;
+	var aDiv=null;
+	 */
+	window.onload=function(){
+		new TabSwitch('div1');
+	}
+	function TabSwitch(id){//this在这里指的是当前的类，即对象，而不是当前的按钮
+			var _this=this;
+			var oDiv=document.getElementById(id);
+			this.aBtn=oDiv.getElementsByTagName('input');
+			this.aDiv=oDiv.getElementsByTagName('div');
+			for(var i=0;i<this.aBtn.length;i++){
+				this.aBtn[i].index=i;
+				this.aBtn[i].onclick=function(){
+					_this.fnClick(this);//这里的this指的是当前按钮
+				}
+			}
+	}
+	TabSwitch.prototype.fnClick=function(oBtn){
+					for(var i=0;i<this.aBtn.length;i++){
+						this.aBtn[i].className='';
+						this.aDiv[i].style.display='none';
+					}
+					oBtn.className='active';
+					this.aDiv[oBtn.index].style.display='block';
+	}	
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<input class="active" style="margin-left: 20px;" type="button" value="选项卡一" />
+		<input type="button" value="选项卡二" />
+		<input type="button" value="选项卡三" />
+		<div style="display: block;">aaaaaaaa</div>
+		<div>bbbbbbb</div>
+		<div>cccccccc</div>
+	</div>
+</body>
+</html>

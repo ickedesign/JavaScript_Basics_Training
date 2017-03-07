@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>6、关于拖拽的复习</title>
+	<style type="text/css">
+	#div1{
+		width: 200px;
+		height: 200px;
+		background: yellow;
+		position: absolute;
+	}
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oDiv1=document.getElementById('div1');
+		oDiv1.onmousedown=function(ev){
+			var oEv=ev||event;
+			var disX=oEv.clientX-oDiv1.offsetLeft;
+			var disY=oEv.clientY-oDiv1.offsetTop;
+			document.onmousemove=function(ev){
+				var oEv=ev||event;
+				oDiv1.style.left=oEv.clientX-disX+'px';
+				oDiv1.style.top=oEv.clientY-disY+'px';
+			}
+			document.onmouseup=function(){
+				document.onmousemove=null;
+				document.onmouseup=null;
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>1、使用arguments</title>
+
+	<script type="text/javascript">
+	function getSum(){
+		var result=0;
+		for(var i=0;i<arguments.length;i++){
+			result+=arguments[i];
+		}
+		return result;
+	}
+	alert(getSum(1,2,3));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

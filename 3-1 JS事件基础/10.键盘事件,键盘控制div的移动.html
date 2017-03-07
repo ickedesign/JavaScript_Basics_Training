@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>10.键盘事件,键盘控制div的移动</title>
+	<script>
+		window.onload=function(){
+			var oDiv=document.getElementsByTagName('div')[0];
+			document.onkeydown=function(ev){
+				var oEv=ev||event;
+				if(oEv.keyCode==37){
+					oDiv.style.left=oDiv.offsetLeft-10+'px';
+				}
+				else if(oEv.keyCode==38){
+					oDiv.style.top=oDiv.offsetTop-10+'px';
+				}
+				else if(oEv.keyCode==39){
+					oDiv.style.left=oDiv.offsetLeft+10+'px';
+				}
+				else if(oEv.keyCode==40){
+					oDiv.style.top=oDiv.offsetTop+10+'px';
+				}
+
+			}
+		}
+	</script>
+</head>
+<body>
+	<div style="height:100px;width:100px;background:blue;position:absolute;"><!--一定要加absolute-->
+	</div>
+</body>
+</html>

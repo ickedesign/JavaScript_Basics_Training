@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3.绑定事件的兼容性封装</title>
+	<script>
+		window.onload=function(){
+			//以下是封装的内容
+			function myAddEvent(obj,ev,fn){
+				if(obj.attachEvent){
+					obj.attachEvent('on'+ev,fn);
+				}
+				else{
+					obj.addEventListener(ev,fn,false);
+				}
+			}
+			var oBtn=document.getElementById('btn');
+			myAddEvent(oBtn,'click',function(){
+				alert('a1');
+			});
+			myAddEvent(oBtn,'click',function(){
+				alert('b1');
+			});
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id="btn" value="按钮" />
+</body>
+</html>

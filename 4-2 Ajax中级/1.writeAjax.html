@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>1、Ajax.js的编写</title>
+	<script>
+		window.onload=function(){
+			var oBtn=document.getElementById('btn');
+			oBtn.onclick=function(){
+				//1、创建对象
+				if(window.XMLHttpRequest){
+					var oAjax=new XMLHttpRequest();
+				}
+				else{
+					var oAjax=new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				//2、连接服务器
+				//open(方法,文件,异步传输);
+				oAjax.open('GET','txt/ajaxTest.txt?t='+new Date().getTime(),true);
+				//3、发送请求
+				oAjax.send();
+				//4、接受返回
+				oAjax.onreadystatechange=function(){
+					if(oAjax.readyState==4){//读取完成
+						if(oAjax.status==200){
+							alert('成功：'+oAjax.responseText);
+						}
+						else{
+							alert('失败：'+oAjax.status);
+						}
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="点击" id="btn" />
+</body>
+</html>

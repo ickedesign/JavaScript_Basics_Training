@@ -1,0 +1,92 @@
+<!DOCTYPE html><!--按html:5 +tab-->
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滚动的圆</title>
+	<!--css样式-->
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		/*第一个球的设置样式*/
+		#box{
+			position:relative;
+			left:400px;
+			top:100px;
+			border:1px solid #000;
+			height:400px;
+			width:400px;/*398px*/
+			overflow:hidden;
+		}
+		#circle{
+			position:absolute;
+			left:0;
+			top:125px;
+			background:green;
+			width:6px;
+			height:6px;
+			border-radius:100%;
+			padding:22px;
+		}
+		/*第二个球的设置样式*/
+		ul{
+			position:absolute;
+			left:0;
+			top:195px;
+			width:400px;
+			height:50px;
+			list-style-type:none;
+			display:inline;
+		}
+		#number{
+			background:red;
+			width:6px;
+			height:6px;
+			border-radius:100%;
+			padding:22px;
+			margin-right:350px;
+			
+		}
+		ul li{
+			float:left;
+		}
+		/*按钮的设置样式*/
+		#btn1{
+			position:absolute;
+			top:520px;
+			left:500px;
+		}
+		#btn2{
+			position:absolute;
+			top:520px;
+			left:619px;
+		}
+		#btn3{
+			position:absolute;
+			top:550px;
+			left:500px;
+		}
+		#btn4{
+			position:absolute;
+			top:550px;
+			left:619px;
+		}
+	</style>
+</head>
+
+<body>
+<input id="btn1" type="button" value="点击第一个球运动" />
+<input id="btn2" type="button" value="停止第一个球运动" />
+<input id="btn3" type="button" value="点击第二个球运动" />
+<input id="btn4" type="button" value="停止第二个球运动" />
+
+<div id="box">
+	<div id="circle">1</div>
+	<ul id="Ul1">
+		<li id="number">2</li>
+	</ul>
+</div>	
+<script type="text/javascript" src="js/circle.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>1.绑定事件</title>
+	<script type="text/javascript">
+		/*window.attachEvent('onload',function(){
+			alert('a');
+		})
+		window.attachEvent('onload',function(){
+			alert('b');
+		})*/
+		/*window.onload=function(){
+			alert('a');
+		}*/
+		window.onload=function(){
+			var oBtn=document.getElementById('btn');
+			//attachEvent方法不适用于FF，Chrome，以及IE9以上的浏览器
+			/*oBtn.attachEvent('onclick',function(){
+				alert('a');
+			});
+			oBtn.attachEvent('onclick',function(){
+				alert('b');
+			});*/
+			//使用addEventListener方法
+			oBtn.addEventListener('click',function(){
+				alert('a1');
+			},false);
+			oBtn.addEventListener('click',function(){
+				alert('b1');
+			},false);
+		}
+	</script>
+</head>
+
+<body>
+	<input id="btn" type="button" value="按钮" />
+</body>
+</html>

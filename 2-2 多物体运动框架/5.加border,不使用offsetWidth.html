@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>智能社视频下</title>
+	<script type="text/javascript">
+	window.onload=function(){
+		/*function getStyle(obj,name){
+			if(obj.currentStyle){
+				return obj.currentStyle[name];
+			}
+			else{
+				return getComputedStyle(obj,false)[name];
+			}
+		}*/
+		function getStyle(obj, name)
+{
+	if(obj.currentStyle)
+	{
+		return obj.currentStyle[name];
+	}
+	else
+	{
+		return getComputedStyle(obj, false)[name];
+	}
+}
+		var oDiv1=document.getElementById('div1');
+		oDiv1.onmouseover=function(){
+			startMove(this,'height',400);
+		}
+		oDiv1.onmouseout=function(){
+			startMove(this,'height',200);
+		}
+		var oDiv2=document.getElementById('div2');
+		oDiv2.onmouseover=function(){
+			startMove(this,'width',400);
+		}
+		oDiv2.onmouseout=function(){
+			startMove(this,'width',200);
+		}
+		var oDiv3=document.getElementById('div3');
+		oDiv3.onmouseover=function(){
+			startMove(this,'fontSize',100);
+		}
+		oDiv3.onmouseout=function(){
+			startMove(this,'fontSize',17);
+		}
+		var oDiv4=document.getElementById('div4');
+		oDiv4.onmouseover=function(){
+			startMove(this,'borderWidth',50);
+		}
+		oDiv4.onmouseout=function(){
+			startMove(this,'borderWidth',3);
+		}
+
+
+		function startMove(obj,attr,target){
+			clearInterval(obj.timer);
+			obj.timer=setInterval(function(){
+				var cur=parseInt(getStyle(obj,attr));//要注意括号这些问题
+				var speed=(target-cur)/6;
+				speed=speed>0?Math.ceil(speed):Math.floor(speed);
+				if(target==cur){
+					clearInterval(obj.timer);
+				}
+				else{
+					obj.style[attr]=cur+speed+'px';
+				}
+			},30)
+		}
+
+	}
+	</script>
+	<style>
+		div{
+			width:200px;
+			height:200px;
+			background:yellow;
+			margin-left:10px;
+			border:3px solid black;
+			float:left;
+			font-size:17px;
+		}
+	</style>
+</head>
+
+
+	
+<body>
+<p class="paragraph">JS 运动应用:5.不使用offset:通过parseInt来解决这个问题，来适用于非行间样式；即parseInt(getStyle(oDiv,'width'));</p>
+<div id="div1">变高</div>
+<div id="div2">变长</div>
+<div id="div3">变字体大小</div>
+<div id="div4">变border的宽度</div>
+</body>
+</html>

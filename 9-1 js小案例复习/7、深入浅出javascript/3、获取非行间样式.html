@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3、获取非行间样式</title>
+	<style type="text/css">
+		#div1{
+			width: 100px;
+			height: 100px;
+			background: #ccc;
+		}
+	</style>
+	<script type="text/javascript">
+	function getStyle(obj,name){
+		//在IE情况下
+		if(obj.currentStyle){
+			return obj.currentStyle[name];
+		}
+		//在FF、CHROME中
+		else{
+			return getComputedStyle(obj,false)[name];
+		}
+	}
+	window.onload=function(){
+		var oDiv1=document.getElementById('div1');
+		alert(getStyle(oDiv1,'width'));
+	}
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>

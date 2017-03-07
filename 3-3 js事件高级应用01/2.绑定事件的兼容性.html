@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2.绑定事件的兼容性</title>
+	<script>
+		window.onload=function(){
+			var oBtn=document.getElementById('btn');
+			if(oBtn.attachEvent){
+				oBtn.attachEvent('onclick',function(){
+					alert('a1');
+				});
+				oBtn.attachEvent('onclick',function(){
+					alert('b1');
+				});
+			}
+			else{
+				oBtn.addEventListener('click',function(){
+					alert('a2');
+				},false);
+				oBtn.addEventListener('click',function(){
+					alert('b2');
+				},false);
+			}
+		}
+	</script>
+</head>
+<body>
+	<input id="btn" type="button" value="按钮" />
+</body>
+</html>

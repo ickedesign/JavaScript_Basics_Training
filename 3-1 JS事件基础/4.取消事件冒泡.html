@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.取消事件冒泡</title>
+	<script>
+	window.onload=function(){
+		var oBtn=document.getElementById('btn');
+		var oDiv=document.getElementsByTagName('div')[0];
+		oBtn.onclick=function(ev){
+			var oEvent=ev||event;//获取鼠标的事件的设置
+
+			oDiv.style.display='block';
+			oEvent.cancelBubble=true;//取消冒泡
+			
+		}
+		document.onclick=function(){
+			oDiv.style.display='none';
+		}
+	}	
+	</script>
+</head>
+
+<body>
+	<input style="margin-bottom:20px;" type="button" value="展开" id="btn" />
+	<div style="display:none;height:200px;width:200px;background:#ccc;">
+		<!-- <a href="javascript:;">百度的网址</a> -->
+		<a href="http://www.baidu.com" title="百度" target="_blank">百度的网址</a>
+	</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.高级拖拽1：不能拖出指定对象的div</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		#div1{
+			width:100px;
+			height:100px;
+			background:red;
+			position:absolute;
+		}
+		#div2{
+			width:300px;
+			height:300px;
+			background:#ccc;
+			position:relative;
+			top:200px;
+			left:200px;
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var oDiv1=document.getElementById('div1');
+			var oDiv2=document.getElementById('div2');
+			var disX=0;
+			var disY=0;
+			oDiv1.onmousedown=function(ev){
+				var oEv=ev||event;
+				disX=oEv.clientX-oDiv1.offsetLeft;
+				disY=oEv.clientY-oDiv1.offsetTop;
+				document.onmousemove=function(ev){
+					var oEv=ev||event;
+					var x=oEv.clientX-disX;
+					var y=oEv.clientY-disY;
+					if(x<0){
+						x=0;
+					}
+					else if(x>oDiv2.offsetWidth-oDiv1.offsetWidth){
+						x=oDiv2.offsetWidth-oDiv1.offsetWidth;
+					}
+					if(y<0){
+						y=0;
+					}
+					else if(y>oDiv2.offsetHeight-oDiv1.offsetHeight){
+						y=oDiv2.offsetHeight-oDiv1.offsetHeight;
+					}
+					oDiv1.style.left=x+'px';
+					oDiv1.style.top=y+'px';
+				}
+				document.onmouseup=function(){
+					document.onmousemove=null;
+					document.onmouseup=null;
+				}
+				return false;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="div2">
+		<div id="div1"></div>
+	</div>
+</body>
+</html>

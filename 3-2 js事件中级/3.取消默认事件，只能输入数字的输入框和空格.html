@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3.取消默认事件，只能输入数字和空格的输入框</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			document.onkeydown=function(ev){
+				var oEv=event||ev;
+				//alert(oEv.keyCode);
+				if(oEv.keyCode!=8&&oEv.keyCode<48||oEv.keyCode>57){
+					return false;
+				}
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<input type="text" id="Txt" />
+</body>
+</html>

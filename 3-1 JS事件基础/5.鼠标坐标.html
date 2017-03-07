@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.鼠标坐标</title>
+
+	<script>
+	window.onload=function(){
+		var oDiv=document.getElementById('div1');
+		document.onmousemove=function(ev){//是onmousemove
+				var oEvent=ev||event;
+				//var oDiv=document.getElementById('div1');
+				oDiv.style.left=oEvent.clientX+'px';
+				oDiv.style.top=oEvent.clientY+'px';
+		}
+	}	
+
+
+	</script>
+</head>
+
+<body>
+	<div id="div1" style="background:red;height:200px;width:200px;position:absolute;"></div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>6.高级拖拽2：事件捕获，使得文字拖拽能在IE9以下的浏览器不出现问题</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oDiv=document.getElementById('div1');
+			var disX=0;
+			var disY=0;
+			oDiv.onmousedown=function(ev){
+				var oEv=ev||event;
+				disX=oEv.clientX-oDiv.offsetLeft;
+				disY=oEv.clientY-oDiv.offsetTop;
+				oDiv.onmousemove=function(ev){//加document，使得鼠标不出红格子
+					var oEv=ev||event;
+					oDiv.style.left=oEv.clientX-disX+'px';
+					oDiv.style.top=oEv.clientY-disY+'px';
+				}
+				oDiv.onmouseup=function(){//加document,使得红格子出页面，鼠标弹出时，能正常
+					
+					oDiv.onmousemove=null;
+					oDiv.onmouseup=null;
+					oDiv.releaseCapture();
+				}
+				oDiv.setCapture();
+				return false;//阻止在FF中出现的默认事件
+			}
+			
+		}
+	</script>
+</head>
+
+<body>
+eeeeeeeeeeeeeee<br />
+kkkkkkkk<br />
+	<div id="div1" style="width:200px;height:200px;background:green;position:absolute;">啊哈哈哈哈哈哈哈<br />44445jdjdj</div>
+	dhsjfasjgafgasja<br />
+	sajjgdasj88383
+</body>
+</html>

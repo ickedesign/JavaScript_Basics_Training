@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3.点击坐标</title>
+	<script>
+		window.onload=function(){
+			/*document.onclick=function(ev){
+				var oEv=ev||event;//获取event事件的兼容性写法
+				alert(oEv.clientX+','+oEv.clientY);
+				//在ie或者其它浏览器中，直接用event；在firefox中，得使用ev这个参数
+			}*/
+			document.onclick=function(ev){
+				var oEv=event||ev;
+				alert(oEv.clientX+','+oEv.clientY);
+			}
+		}
+	</script>
+</head>
+
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>6、删除cookie，removeCookie()</title>
+	<script type="text/javascript">
+	function setCookie(name,value,iDay){
+		var oDate=new Date();
+		oDate.setDate(oDate.getDate()+iDay);
+		document.cookie=name+'='+value+';expires='+oDate;
+	}
+	function removeCookie(name){
+		setCookie(name,1,-1);
+	}
+	removeCookie('site');
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

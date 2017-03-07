@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>8.制作一串div跟着鼠标动</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			function getPos(oEvent){
+				var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+				var scrollLeft=document.documentElement.scrollLeft||document.body.scrollLeft;
+				return{x:oEvent.clientX+scrollLeft,y:oEvent.clientY+scrollTop};
+			}
+			document.onmousemove=function(ev){
+				var aDiv=document.getElementsByTagName('div');
+				var oEvent=ev||event;
+				for(var i=aDiv.length-1;i>0;i--){
+					aDiv[i].style.top=aDiv[i-1].offsetTop+'px';
+					aDiv[i].style.left=aDiv[i-1].offsetLeft+'px';
+
+				}
+				var pos=getPos(oEvent);
+				aDiv[0].style.top=pos.y+'px';
+				aDiv[0].style.left=pos.x+'px';
+			}
+		}
+	</script>
+	<style>
+		div{
+			height:10px;
+			width:10px;
+			background:green;
+
+			position:absolute;
+
+		}
+	</style>
+</head>
+
+<body>
+	<div></div>
+
+	<div></div>
+
+	<div></div>
+	
+	<div></div>
+	<div></div>
+	<div></div>
+
+	<div></div>
+	<div></div>
+		<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

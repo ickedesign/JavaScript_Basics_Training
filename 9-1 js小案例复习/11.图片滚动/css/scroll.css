@@ -1,0 +1,42 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+.container{
+	width: 515px;
+	height: 66px;
+	margin: 100px auto;
+}
+#leftArrow{
+	width: 26px;
+	height: 52px;
+	float: left;
+	margin-top: 7px;
+	margin-right: 10px;
+	cursor: pointer;
+}
+#rightArrow{
+	width: 26px;
+	height: 52px;
+	float: left;
+	margin-top: 7px;
+	margin-left: 10px;
+	cursor: pointer;
+}
+#content{
+	width: 440px;
+	height: 66px;
+	float: left;
+	overflow: hidden;
+	cursor: pointer;
+	position: relative;
+}
+#content ul{
+	height: 66px;
+	width: 1144px;
+	position: absolute;
+}
+#content ul li{
+	list-style: none;
+	float: left;
+}

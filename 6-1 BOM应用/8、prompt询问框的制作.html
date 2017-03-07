@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>8、prompt询问框的制作</title>
+	<script type="text/javascript">
+
+	function rec(){
+		var myName=prompt('你的名字是什么?');
+		if(myName!=null){
+			alert('hi>>>'+myName);
+		}
+		else{
+			alert('欢迎你');
+		}
+		var myGrade=prompt('你的语文成绩是多少呢，数字说话');
+		if(myGrade>=80){
+			alert('Great');
+		}
+		else if(myGrade>=60){
+			alert('good');
+		}
+		else if(myGrade<60&&myGrade>=0){
+			alert('bad');
+		}
+		else{
+			alert('come on!');
+		}
+	}
+	rec();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

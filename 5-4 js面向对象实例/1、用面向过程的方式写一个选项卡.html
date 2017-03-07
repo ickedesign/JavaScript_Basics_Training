@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>1、用面向过程的方式写一个选项卡</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.active{
+			background: yellow;
+		}
+		#div1 div{
+			margin-top: 20px;
+			margin-left: 20px;
+			width: 200px;
+			height: 200px;
+			background: #ccc;
+			display: none;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oDiv=document.getElementById('div1');
+			var aBtn=oDiv.getElementsByTagName('input');
+			var aDiv=oDiv.getElementsByTagName('div');
+			for(var i=0;i<aBtn.length;i++){
+				aBtn[i].index=i;
+				aBtn[i].onclick=function(){
+					for(var i=0;i<aBtn.length;i++){
+						aBtn[i].className='';
+						aDiv[i].style.display='none';
+					}
+					this.className='active';
+					aDiv[this.index].style.display='block';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<input class="active" style="margin-left: 20px;" type="button" value="选项卡一" />
+		<input type="button" value="选项卡二" />
+		<input type="button" value="选项卡三" />
+		<div style="display: block;">aaaaaaaa</div>
+		<div>bbbbbbb</div>
+		<div>cccccccc</div>
+	</div>
+</body>
+</html>

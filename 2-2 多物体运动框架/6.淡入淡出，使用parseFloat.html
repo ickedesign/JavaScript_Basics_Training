@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>智能社视频下</title>
+	<script type="text/javascript">
+window.onload=function(){
+	function getStyle(obj,name){
+		if(obj.currentStyle){
+			return obj.currentStyle[name];//name为变量，要用方括号括起来；
+		}
+		else{
+			return getComputedStyle(obj,false)[name];
+		}
+	}
+	var oDiv=document.getElementById('div1');
+	
+	oDiv.onmouseover=function (){
+		move(this,'opacity',100);
+	}
+	oDiv.onmouseout=function(){
+		move(this,'opacity',30);
+	}
+	function move(obj,attr,target){//attribute是属性的意思；
+		clearInterval(obj.timer);
+		obj.timer=setInterval(function(){
+			var cur=Math.round(parseFloat(getStyle(obj,attr))*100);
+			var speed=(target-cur)/6;
+			speed=speed>0?Math.ceil(speed):Math.floor(speed);
+			if(target==cur){
+				clearInterval(obj.timer);
+			}
+			else{
+				obj.style.filter='alpha(opacity:'+(cur+speed)+')';
+				obj.style.opacity=(cur+speed)/100;
+			}
+		},30)
+	}
+}
+	</script>
+	<style>
+		div{
+			width:200px;
+			height:200px;
+			background:yellow;
+			margin-left:10px;
+			border:3px solid black;
+			filter:alpha(opacity:30);
+			opacity:0.3;
+		}
+	</style>
+</head>
+
+
+	
+<body>
+<p class="paragraph">JS 运动应用:6.不使用offset:通过parseFloat来解决淡入淡出的问题，来适用于非行间样式；即parseFloat(getStyle(oDiv,'width'));</p>
+<div id="div1"></div>
+</body>
+</html>

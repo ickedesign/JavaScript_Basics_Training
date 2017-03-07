@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>7、DOM创建元素</title>
+	<script type="text/javascript" src="ajax.js"></script>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oBtn=document.getElementById('btn');
+		var oUl=document.getElementById('ul1');
+		oBtn.onclick=function(){
+			ajax('txt/useDOM.txt?t='+new Date().getTime(),function(str){
+				var arr=eval(str);
+				for(var i=0;i<arr.length;i++){
+					var oLi=document.createElement('li');
+					oLi.innerHTML='用户名:<strong>'+arr[i].user+'</strong><br />密码：<em>'+arr[i].password+'</em>';
+					oUl.appendChild(oLi);//oLi的外部不用加上引号；
+				}
+			},function(){
+				alert('失败');
+			})
+		}
+	}
+	</script>
+</head>
+<body>
+	<input type="button" id="btn" value="读取" />
+	<ul id="ul1">
+		
+	</ul>
+</body>
+</html>

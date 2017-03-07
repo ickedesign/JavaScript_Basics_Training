@@ -1,0 +1,274 @@
+@charset "utf-8";
+/* CSS Document */
+*{padding:0;/*因为有这个的存在，所以ul的无序排列没有效果*/
+  margin:0;
+  font-family:arial;
+  }
+ .clear{
+ 	clear:both;
+ } 
+#text{
+	position:absolute;
+	width:200px;
+	height:100px;
+	background:#CCC;
+	color:#000;
+	font-size:12px;
+	font-family:"Times New Roman", Times, serif;
+	display:none;
+	z-index:999;
+	}
+.title{
+	margin:10px 0;
+	font-size:13px;
+	line-height:25px;
+	color:#33C;
+	}	
+#changeColorDiv{
+	width:200px;
+	height:100px;
+	background:#CFF;
+	}	
+#changeSkinDiv{
+	width:200px;
+	height:100px;
+	background:#FCF;
+	margin-top:10px;
+	}
+#appear-box{
+	width:200px;
+	height:100px;
+	background:#C9C;
+	margin-top:10px;
+	}	
+#red-box{
+	width:200px;
+	height:100px;
+	border:1px solid #000;
+	}
+.red-box{
+	background:#FCC;
+	}	
+.none-box{
+	background:none;
+	}	
+#change-color-box{
+	width:200px;
+	height:100px;
+	border:1px solid #000;
+	}	
+#second-color-box{
+	width:200px;
+	height:100px;
+	border:1px solid #000;
+	}		
+#black h3{
+	color:#000;
+	}	
+.nationalDay{
+	background:#F99;
+	}
+#tabControl div{
+	width:160px;
+	height:60px;
+	padding:20px;
+	margin-top:10px;
+	margin-left:20px;
+	background:#FCF;
+	color:#333;
+	font-size:11px;
+	display:none;
+	}	
+#innerHTML-practice div{
+	width:200px;
+	height:100px;
+	border:1px solid #000;
+	margin-top:10px;
+	margin-left:20px;
+	color:#F99;
+	text-align:center;
+	}	
+/*18.简易日历的练习*/	
+#calender{
+	margin:0 auto;
+	width:214px;
+	min-height:300px;
+	padding:13px;
+	background:#CCC;
+	}	
+#calender ul{
+	width:214px;
+	height:292px;
+	list-style-type:none;
+	}	
+#calender li{
+	margin-right:20px;
+	margin-top:20px;
+	width:58px;
+	height:58px;
+	background:#333;
+	color:#CCC;
+	font-size:12px;
+	float:left;
+	text-align:center;
+	cursor:pointer;
+	}	
+#calender li h2{
+	margin-top:9px;
+	}	
+#calender .show-calender{
+	background:#333;
+	color:#F03;
+	}
+#calender .content-calender{
+	width:214px;
+	height:58px;
+	background:#fff;
+	color:#333;
+	margin-top:20px;
+	}	
+#calender .content-calender h2{
+	margin-left:10px;
+	}	
+#calender .content-calender p{
+	margin-left:10px;
+	}	
+#notCssDiv{
+	width:200px;
+	height:100px;
+	background:yellow;	
+}	
+#delayPromptBox1{
+	margin-left:500px;
+	float:left;
+	width:50px;
+	height:50px;
+	background:green;
+	cursor:pointer;
+}
+#delayPromptBox2{
+	margin-left:20px;
+	float:left;
+	width:200px;
+	height:100px;
+	background:#ccc;
+	display:none;
+	cursor:pointer;
+}
+#positionBox{
+	height:100px;
+	width:200px;
+	background:yellow;
+	position:absolute;
+	top:5050px;
+	left:200px;
+	margin-left:50px;
+}
+#positionBox1{
+	height:108px;
+	width:712px;
+	background:red;
+	position:relative;
+	margin:0 auto;
+	overflow:hidden;/*用来隐藏长度为原来2倍的ul*/
+}
+#positionBox1 ul{
+	list-style-type:none;
+	position:absolute;
+	left:0;
+	top:0;
+}
+#positionBox1 li{
+	float:left;
+	cursor:pointer;
+}
+div#ospDiv{
+	height:50px;
+	width:50px;
+	background:red;
+	position:absolute;
+	left:25px;
+	top:25px;
+}
+#sportBox{
+	position:absolute;
+	left:0;
+	top:7600px;
+	height:100px;
+	width:100px;
+	background:yellow;
+}
+#sidebar{
+	height:200px;
+	width:100px;
+	position:absolute;
+	left:-100px;
+	top:7833px;
+	background:#ccc;
+	cursor:pointer;
+}
+#share{
+	height:100px;
+	width:25px;
+	position:absolute;
+	right:-25px;
+	top:50px;
+	background:yellow;
+	text-align:center;
+	padding-top:30px;
+}
+#alphaBox{
+	width:100px;
+	height:100px;
+	filter:alpha(opacity:30);/*在ie中使用*/
+	opacity:0.3;/*在更高级的浏览器中使用*/
+	background:red;
+}
+#bufferBox{
+	height:100px;
+	width:100px;
+	background:#ccc;
+	position:absolute;
+	left:900px;/*可换成0*/
+	top:8360px;
+}
+#bufferDiv{
+	height:100px;
+	width:50px;
+	background:red;
+	position:absolute;
+	right:0;
+	/*bottom:0;*/
+}
+#runDiv{
+	height:100px;
+	width:50px;
+	background:green;
+	position:absolute;
+	right:0;
+	/*bottom:0;*/
+}
+#ccBox1{
+	height:100px;
+	width:1px;
+	background:#000;
+	position:absolute;
+	top:8600px;
+	left:100px;
+}
+#ccBox2{
+	height:100px;
+	width:1px;
+	background:#000;
+	position:absolute;
+	top:8600px;
+	left:300px;
+}
+#ccBox3{
+	height:100px;
+	width:100px;
+	background:red;
+	position:absolute;
+	top:8600px;
+	left:600px;
+}

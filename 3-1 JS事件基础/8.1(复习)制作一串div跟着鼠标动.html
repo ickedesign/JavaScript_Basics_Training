@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>8.1(复习)制作一串div跟着鼠标动</title>
+	<style type="text/css">
+		div{
+			height:10px;
+			width:10px;
+			background:yellow;
+			position:absolute;/*一定要给个绝对位置*/
+		}
+	</style>
+	<script>
+	window.onload=function(){
+		function getPos(oEv){
+			var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+			var scrollLeft=document.documentElement.scrollLeft||document.body.scrollLeft;
+			return{x:oEv.clientX+scrollLeft,y:oEv.clientY+scrollTop};
+		}
+		var aDiv=document.getElementsByTagName('div');
+		document.onmousemove=function(ev){
+			var oEv=ev||event;
+			var pos=getPos(oEv);
+			for(var i=aDiv.length-1;i>0;i--){
+				aDiv[i].style.left=aDiv[i-1].offsetLeft+'px';
+				aDiv[i].style.top=aDiv[i-1].offsetTop+'px';
+			}
+			aDiv[0].style.left=pos.x+'px';
+			aDiv[0].style.top=pos.y+'px';
+		}
+	}	
+	</script>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

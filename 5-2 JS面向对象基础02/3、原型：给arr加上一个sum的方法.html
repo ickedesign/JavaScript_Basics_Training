@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3、原型：给arr加上一个sum的方法</title>
+	<script type="text/javascript">
+	var arr1=new Array(1,2,3,4,5);
+	var arr2=new Array(1,2,3,4);
+	Array.prototype.sum=function(){
+		var result=0;
+		for(var i=0;i<this.length;i++){
+			result+=this[i];
+		}
+		return result;
+	}
+	alert(arr1.sum());
+	alert(arr2.sum());
+	
+	</script>
+
+</head>
+<body>
+	
+</body>
+</html>

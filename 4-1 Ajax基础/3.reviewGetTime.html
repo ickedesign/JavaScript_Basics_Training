@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3、关于new Date().getTime()</title>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oBtn1=document.getElementById('btn1');
+		var oBtn2=document.getElementById('btn2');
+		var oTime1=new Date();
+	
+		oBtn1.onclick=function(){
+			alert(oTime1);
+		}	
+		oBtn2.onclick=function(){
+			alert(oTime1.getTime());
+		}	
+	}	
+	</script>
+</head>
+<body>
+	<input type="button" id="btn1" value="new&nbsp;&nbsp;&nbsp;&nbsp;Date" />
+	<input type="button" id="btn2" value="getTime" />
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.拖拽</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oDiv=document.getElementById('div1');
+			var disX=0;
+			var disY=0;
+			oDiv.onmousedown=function(ev){
+				var oEv=ev||event;
+				disX=oEv.clientX-oDiv.offsetLeft;
+				disY=oEv.clientY-oDiv.offsetTop;
+				document.onmousemove=function(ev){//加document，使得鼠标不出红格子
+					var oEv=ev||event;
+					oDiv.style.left=oEv.clientX-disX+'px';
+					oDiv.style.top=oEv.clientY-disY+'px';
+				}
+				document.onmouseup=function(){//加document,使得红格子出页面，鼠标弹出时，能正常
+					
+					document.onmousemove=null;
+					document.onmouseup=null;
+				}
+				return false;//阻止在FF中出现的默认事件
+			}
+			
+		}
+	</script>
+</head>
+
+<body>
+	<div id="div1" style="width:200px;height:200px;background:green;position:absolute;"></div>
+</body>
+</html>

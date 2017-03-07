@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>6、不完美，会卡的悬浮框制作，无缓冲运动</title>
+	<style type="text/css">
+	#div1{
+		height: 100px;
+		width: 100px;
+		background: #000;
+		/*该方法只适合在非ie6下使用*/
+		/* position: fixed;
+		right: 0;
+		bottom: 0; */
+		position: absolute;
+		right: 0;
+		bottom: 0;
+	}
+	</style>
+	<script type="text/javascript">
+	//使用position:fixed,在ie6下，不被识别
+	window.onload=function(){
+		window.onscroll=window.onresize=function(){
+		var oDiv1=document.getElementById('div1');
+		var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+		oDiv1.style.top=scrollTop+document.documentElement.clientHeight-oDiv1.offsetHeight+'px';
+		}
+	}
+	</script>
+</head>
+<body style="height: 2000px">
+	<div id="div1"></div>
+</body>
+</html>

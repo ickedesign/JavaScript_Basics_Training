@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4、用混合的方式构造对象（混合的原型方式）</title>
+	<script type="text/javascript">
+		function CreatePerson(name,qq){
+			
+			this.name=name;
+			this.qq=qq;
+		}
+		CreatePerson.prototype.showName=function(){
+				alert('我的名字是：'+this.name);
+			}
+		CreatePerson.prototype.showQQ=function(){
+				alert('我的qq是：'+this.qq);
+			}	
+		var obj1=new CreatePerson('icke','16275742374');
+		var obj2=new CreatePerson('blue','362846384628');
+		obj1.showName();
+		obj1.showQQ();
+		obj2.showName();
+		obj2.showQQ();
+		alert(obj1.showQQ==obj2.showQQ);//true 不重复函数
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
